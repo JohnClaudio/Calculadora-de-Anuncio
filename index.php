@@ -43,8 +43,8 @@ require('./view/layout/header.php');
             <label for="formGroupExampleInput2">Data de termino:</label>
             <input type="date" class="form-control" name="dataTermino" id="formGroupExampleInput2" required>
           </div>
-              <div class="form-group">
-            <label for="formGroupExampleInput2">Investimento por dia:</label>
+              <div class="form-group ">
+            <label for="formGroupExampleInput2 ">Investimento por dia:</label>
             <input type="number" class="form-control" name="investimento" step="any" placeholder="R$ 25,00" required>
           </div>
             <div class="form-group">

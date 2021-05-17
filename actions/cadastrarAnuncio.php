@@ -1,15 +1,15 @@
 <?php
 session_start();
-$_SESSION['CADASTRO_FALHOU'] = null;
-$_SESSION['CADASTRO_FEITO'] = null;
+
 require ("../backend/models/Anuncio.php");
 require ('../backend/config/config.php');
-
+$_SESSION['CADASTRO_FALHOU'];
+$_SESSION['CADASTRO_FEITO'];
 //require ('../backend/class/Calculadora2.php');
 
 $anuncio = new Anuncio();
 
-
+$days;
  function calculoDias($data_inicial,$data_final) {
     $diferenca = strtotime($data_final) - strtotime($data_inicial);
     $dias = floor($diferenca / (60 * 60 * 24));
@@ -25,9 +25,11 @@ if(isset($_POST['cadastro'])){
     
     $days = calculoDias($inicio, $termino);
   
-    var_dump($days);
+   // var_dump($days);
    
     }
+    
+    
     if ($days < 0){
         $_SESSION['CADASTRO_FALHOU']= true;
          header('Location: ../index.php');
@@ -35,8 +37,8 @@ if(isset($_POST['cadastro'])){
         $_SESSION['CADASTRO_FEITO']= true;
         header('Location: ../index.php');
     }
-    
-    header('Location: ../index.php');
+
+ header('Location: ../index.php');
    
 
 

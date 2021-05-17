@@ -17,7 +17,7 @@ class Anuncio{
     
     public function MostrarAnuncios():array {
         
-       $stm = $this->pdo->prepare('select * from anuncio ');
+       $stm = $this->pdo->prepare('select * from anuncio order by id_anuncio desc ');
        $result = $stm->execute();    
        return($result = $stm->fetchAll(PDO::FETCH_ASSOC));
        
@@ -27,12 +27,12 @@ class Anuncio{
 
             $sql = "insert into anuncio values (default,?,?,?,?,?,default)";
             $stm = $this->pdo->prepare("$sql");
-            $result = $stm->execute(array($anuncio,$dataInicio,$dataFim,$investimentoDia,$nomeCliente));
+            return $result = $stm->execute(array($anuncio,$dataInicio,$dataFim,$investimentoDia,$nomeCliente));
     }
         
     public function pesquisarAnuncio ($entrada):array{ 
         
-        $sql = "select * from anuncio where nome_cliente like ?";
+        $sql = "select * from anuncio where nome_cliente like ? order by id_anuncio desc";
         $stm = $this->pdo->prepare($sql);
         $result = $stm->execute(array("%$entrada%"));
         return $result = $stm->fetchAll();                  

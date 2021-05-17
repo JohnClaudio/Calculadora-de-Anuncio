@@ -1,6 +1,6 @@
 <?php
 require ('../models/Anuncio.php');
-require ('../class/Calculadora2.php');
+require ('../class/Calculadora.php');
 require('../config/config.php');
 class ControllerAnuncio{
     
@@ -10,7 +10,7 @@ class ControllerAnuncio{
     public function __construct() {
         
         $this->anuncio = new Anuncio();
-        $this->calculadoraAnuncio = new Calculadora2();
+        $this->calculadoraAnuncio = new Calculadora();
         
     }
     
