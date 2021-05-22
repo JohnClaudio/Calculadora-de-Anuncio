@@ -101,26 +101,6 @@ class Calculadora {
         
         
     }
-    
-    public function calcularProjecaodeAnuncio($investimento) {
-        
-        $valorInvestido = Calculadora::setValordeInvestimento($investimento);
-        $visualizacaoTotal = Calculadora::setVisualizacaoTotal($valorInvestido); 
-        $visualizacaoOriginal = Calculadora::getVisualizacaoOriginal();
-        $qtd_clicks = Calculadora::getTotaldeClicks();
-        $totaldeCompartilhamentos = Calculadora::getTotaldeCompartilhamentos();
-             
-        echo'<br> <center>';
-        echo '<h2>----------\-  Projecao Estimada Detalhada - /--------</h2>';
-        echo" <h4>Seu investimento:</h4> <b><h3> R$ ".  number_format($valorInvestido, 2, ',', '.'). "</h3>";
-        echo" <h5>PROJECAO TOTAL APROXIMADA DE VISUALIZACOES:</h5> <b><h4> $visualizacaoTotal </b> </h4>";
-        echo" <h5>PROJECAO TOTAL DE VISUALIZACOES ORIGINAIS:</h5> <b><h4> $visualizacaoOriginal </b> </h4>";
-        echo" <h5>PROJECAO DE CLICKS:</h5> <b><h4> ($qtd_clicks) </b> </h4>";
-        echo" <h5>PROJECAO DE COMPARTILHAMENTOS:</h5> <b><h4> ($totaldeCompartilhamentos) </b> </h4>";
-  
-    
-    }
-       
-    
+            
 }
 
