@@ -76,15 +76,7 @@ class Calculadora {
     public function setTotaldeCompartilhamentos($totaldeClicks): int {
      
         $Clicks = $totaldeClicks * 15/100;
-        $total = floor($Clicks);
-        
-     /*   while($Clicks >= 12)
-        {
-            $Clicks = $Clicks - 12;
-            $total= $total +1;
-            
-        }*/
-       
+        $total = floor($Clicks);          
         $this->totaldeCompartilhamentos = $total;
         
         return $this->totaldeCompartilhamentos;

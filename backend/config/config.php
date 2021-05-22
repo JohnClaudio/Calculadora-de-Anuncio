@@ -12,7 +12,6 @@ class config{
     private $password   = "vertrigo";
     private $dsn        = "mysql:host=localhost;dbname=calculadoracapgemini";
 
-
     public function connect () {
         
      try {           

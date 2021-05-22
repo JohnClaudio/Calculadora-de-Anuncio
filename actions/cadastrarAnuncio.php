@@ -33,7 +33,7 @@ if(isset($_POST['cadastro'])){
     if ($days < 0){
         $_SESSION['CADASTRO_FALHOU']= true;
          header('Location: ../index.php');
-    }else if ($anuncio->cadastrarAnuncio($nome, $inicio, $termino, $investimento, $nomeCliente and $_SESSION['CADASTRO_FALHOU']==false)){
+    }else if ($anuncio->cadastrarAnuncio($nome, $inicio, $termino, $investimento, $nomeCliente) and $_SESSION['CADASTRO_FALHOU']==false){
         $_SESSION['CADASTRO_FEITO']= true;
         header('Location: ../index.php');
     }

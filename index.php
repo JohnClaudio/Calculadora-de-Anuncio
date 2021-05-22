@@ -4,19 +4,17 @@ session_start();
 require('./view/layout/header.php');
 
 ?>
-  <body class="capgeminiColorBlueDark text-white ">
+  <body class="smokebg text-dark">
   
    
- <div class="container ">
+ <div class="container mt-4  ">
       <main role="main">
       
 
-         <div class="col-sm-8 mx-auto">
-         <center><h1>Cadastrar Anuncio </h1></center>
-         
+         <div class="col-sm-6 mx-auto">
+         <h1 class="text-center"> Cadastrar Anuncio </h1>         
         
-        <div class="jumbotron mt-5 text-dark ">            
-        
+        <div class="mt-3 text-dark ">                 
         <?php 
       if(isset($_SESSION['CADASTRO_FEITO'])){ ?>
      
@@ -33,7 +31,7 @@ require('./view/layout/header.php');
          <form action="./actions/cadastrarAnuncio.php" method="POST">
           <div class="form-group" >
             <label for="formGroupExampleInput">Nome do anuncio</label>
-            <input type="text" class="form-control" name="nomeAnuncio" placeholder="" required>
+            <input type="text" class="form-control" name="nomeAnuncio" placeholder="digite o nome do anuncio" required>
           </div>
           <div class="form-group">
             <label for="formGroupExampleInput2">Data de inicio:</label>
@@ -49,11 +47,13 @@ require('./view/layout/header.php');
           </div>
             <div class="form-group">
             <label for="formGroupExampleInput2">Nome do cliente</label>
-            <input type="text" class="form-control" name="nomeCliente" required>
+            <input type="text" class="form-control" name="nomeCliente" placeholder="digite o nome do cliente" required>
           </div>   
-        <center> <button type="submit" name="cadastro" class="btn btn-primary mt-5">Cadastrar</button></center> 
-           
-        </form> </div>
+      
+             <center> <button type="submit" name="cadastro" class="btn btn-primary ">Cadastrar</button></center> 
+        </form> 
+        
+        </div>
       
         </div>
       </main>

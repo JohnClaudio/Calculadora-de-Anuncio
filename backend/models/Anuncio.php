@@ -32,9 +32,9 @@ class Anuncio{
         
     public function pesquisarAnuncio ($entrada):array{ 
         
-        $sql = "select * from anuncio where nome_cliente like ? order by id_anuncio desc";
+        $sql = "select * from anuncio where nome_cliente like ? or nome_anuncio like ? order by id_anuncio desc";
         $stm = $this->pdo->prepare($sql);
-        $result = $stm->execute(array("%$entrada%"));
+        $result = $stm->execute(array("%$entrada%","%$entrada%"));
         return $result = $stm->fetchAll();                  
     
     }
