@@ -101,6 +101,7 @@ class Calculadora {
         
         
     }
+    
     public function calcularProjecaodeAnuncio($investimento) {
         
         $valorInvestido = Calculadora::setValordeInvestimento($investimento);
