@@ -2,7 +2,7 @@
 
 ## 💻 Sobre o projeto
 
-- Este sistema foi um desafio proposto pela capgemini. Na Aplicação é possível realizar cadastros de anuncios e com base no investimento por dia, gerar um relatório com as projeções aproximadas com base em alguns requisitos:
+- Este sistema foi um desafio proposto pela Capgemini. Na Aplicação é possível realizar cadastros de anúncios, retornar um relatório com base no investimento por dia seguindo alguns requisitos para gerar as projeções:
 
 - A cada 100 pessoas que visualizam o anúncio 12 clicam nele.
 A cada 20 pessoas que clicam no anúncio 3 compartilham nas redes sociais.
