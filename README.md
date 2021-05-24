@@ -14,9 +14,12 @@ Cada compartilhamento nas redes sociais gera 40 novas visualizações.
 - [x] Cadastro de anuncios;
 - [x] Filtro de pesquisa por nome de cliente ou anuncio;
 
-   <img alt="Stargazers" width="600px" src="https://i.imgur.com/A9S1Duc.png">
+### Projecões Estimadas
 
-   <img alt="Stargazers" width="600px" height="500px" src="https://imgur.com/66dTwXh.png">
+   <img alt="Projecões Estimadas" width="600px" src="https://imgur.com/66dTwXh.png">
+
+### Formulário de Cadastro
+   <img alt="Formulário de Cadastro" width="600px" height="500px" src="https://imgur.com/EgVTagZ.png">
     
 ### 🛠 Tecnologias
 
