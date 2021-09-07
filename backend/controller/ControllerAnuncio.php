@@ -7,7 +7,7 @@ class ControllerAnuncio{
     
     public function __construct() {
         
-        $this->anuncio = new Anuncio();
+        $this->anuncio = new AnuncioDAO();
         $this->calculadoraAnuncio = new Calculadora();
         
         return ;
@@ -27,7 +27,7 @@ class ControllerAnuncio{
         if (isset($pesquisa) and $pesquisa != null) {
             
             foreach ( $this->anuncio->pesquisarAnuncio($pesquisa) as $value) {
-                $totalDias = ControllerAnuncio::calculoDias($value['data_inicio'], $value['data_termino']);
+                $totalDias = $this->calculoDias($value['data_inicio'], $value['data_termino']);
                 if($totalDias ==0){
                     $totalDias= 1;
                 }
@@ -54,7 +54,7 @@ class ControllerAnuncio{
             foreach ($this->anuncio->MostrarAnuncios() as $value) {
                 
                 /*Realiza Calculos da estimava * dias investidos e retorna em array*/
-                $totalDias = ControllerAnuncio::calculoDias($value['data_inicio'], $value['data_termino']);
+                $totalDias = $this->calculoDias($value['data_inicio'], $value['data_termino']);
                 
                 if($totalDias==0){ $totalDias=1; }
                 $CalculoDiasXInvestimento = $value['investimento_dia'] * $totalDias;

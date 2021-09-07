@@ -7,8 +7,10 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="view/css/capgeminiColors.css" media="screen" />
-
+    <link rel="stylesheet" type="text/css" href="view/css/geral.css" media="screen" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <title>Calculadora</title>
    
  <nav class="navbar navbar-expand-lg navbar-dark capgeminiColorBlueDark">
@@ -23,7 +25,7 @@
         <a class="nav-link" href="index.php">Cadastrar Anuncio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="search.php">Anuncios</a>
+        <a class="nav-link" href="anuncios.php">Anuncios</a>
       </li>
   
     </ul>

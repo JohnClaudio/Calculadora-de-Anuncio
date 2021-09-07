@@ -1,64 +1,75 @@
 <?php 
 
 session_start();
-require('./view/layout/header.php');
+//ESTRUTURA DA PAGINA
+require_once('./view/layout/header.php'); 
+require_once('./view/conteudo_paginas/index.php');
+require_once('./view/layout/footer.php');
+//---------------------------------------------
 
-?>
-  <body class="smokebg text-dark">
+require_once('./backend/config/includeConfig.php'); //include de arquivos necessários;
+
+
+if(isset($_POST['btnCadastrarAnuncio'])) 
+{
+  unset($_POST['btnCadastrarAnuncio']);
+   //VERIFICANDO SE CAMPOS ESTÃO VAZIOS
+    if (!empty($_POST['nomeAnuncio']) and 
+        !empty($_POST['dataInicio'])   and
+        !empty($_POST['dataTermino'])  and
+        !empty($_POST['investimento']) and
+        !empty($_POST['nomeCliente']))       
+    {     
+
+      
+        //SANITIZAÇÃO E ATRIBUIÇÃO
+        $nomeAnuncio  = filter_var($_POST['nomeAnuncio'], FILTER_SANITIZE_STRING);
+        $dataInicio  = filter_var($_POST['dataInicio'], FILTER_SANITIZE_STRING);
+        $dataTermino  = filter_var($_POST['dataTermino'], FILTER_SANITIZE_STRING);
+        $investimento  = filter_var($_POST['investimento'], FILTER_SANITIZE_STRING);
+        $nomeCliente  = filter_var($_POST['nomeCliente'], FILTER_SANITIZE_STRING);
+
+        $controllerAnuncio = new ControllerAnuncio(); 
+        $VALIDAR_DIAS = $controllerAnuncio->calculoDias($dataInicio, $dataTermino); // realiza o calculo entre inicio e termino;
+        
+        if($VALIDAR_DIAS< 0 ) //SE OS DIAS DO INICIO E FIM DO CONTRATO FOR MENOR QUE 0
+        {
+          $_SESSION['CADASTRO_FALHOU']= true;
+          header('Location: ./index.php');
+        }
+
+        //INSTANCIANDO CLASSES
+       $anuncio = new Anuncio();
+       $anuncioDAO = new AnuncioDAO($pdo = new config()); //OBJETO ANUNCIODAO RECEBE OBJETO DE CONEXÃO PDO
+        
+      //ADICIONANDO OS DADOS NO OBJETO ANUNCIO
+      $anuncio->setNomeAnuncio($nomeAnuncio);
+      $anuncio->setInicio($dataInicio);
+      $anuncio->setTermino($dataTermino);
+      $anuncio->setInvestimento($investimento);
+      $anuncio->setNomecliente($nomeCliente);
+
+ 
+      //VALIDANDO CADASTRO
+      if($anuncioDAO->cadastrarAnuncio($anuncio) == TRUE)
+      {
+        $_SESSION['CADASTRO_FEITO']= true;
+      //  header('Refresh:0');
   
+      }
+      else
+      {
+        $_SESSION['CADASTRO_FALHOU']= true;
+    //    header('Refresh:0');
+      }
+
+      
+       
+ 
+    }
    
- <div class="container mt-4  ">
-      <main role="main">
-      
-
-         <div class="col-sm-6 mx-auto">
-         <h1 class="text-center"> Cadastrar Anuncio </h1>         
-        
-        <div class="mt-3 text-dark ">                 
-        <?php 
-      if(isset($_SESSION['CADASTRO_FEITO'])){ ?>
-     
-      <div class="alert alert-success" role="alert"> O cadastro foi realizado com sucesso!</div>
- 	<?php unset($_SESSION['CADASTRO_FEITO']);}?>
- 
- 
-         <?php 
-      if(isset($_SESSION['CADASTRO_FALHOU'])){ ?>
-      <div class="alert alert-danger" role="alert"> Insira dados validos</div>
- 	<?php unset($_SESSION['CADASTRO_FALHOU']);}?>
- 	
- 
-         <form action="./actions/cadastrarAnuncio.php" method="POST">
-          <div class="form-group" >
-            <label for="formGroupExampleInput">Nome do anuncio</label>
-            <input type="text" class="form-control" name="nomeAnuncio" placeholder="digite o nome do anuncio" required>
-          </div>
-          <div class="form-group">
-            <label for="formGroupExampleInput2">Data de inicio:</label>
-            <input type="date" class="form-control" name="dataInicio" id="formGroupExampleInput2" required>
-          </div>
-           <div class="form-group">
-            <label for="formGroupExampleInput2">Data de termino:</label>
-            <input type="date" class="form-control" name="dataTermino" id="formGroupExampleInput2" required>
-          </div>
-              <div class="form-group ">
-            <label for="formGroupExampleInput2 ">Investimento por dia:</label>
-            <input type="number" class="form-control" name="investimento" step="any" placeholder="R$ 25,00" required>
-          </div>
-            <div class="form-group">
-            <label for="formGroupExampleInput2">Nome do cliente</label>
-            <input type="text" class="form-control" name="nomeCliente" placeholder="digite o nome do cliente" required>
-          </div>   
-      
-             <center> <button type="submit" name="cadastro" class="btn btn-primary ">Cadastrar</button></center> 
-        </form> 
-        
-        </div>
-      
-        </div>
-      </main>
-      </div>
-    </div>
+   
+  }
+    
 
 
-<?php require('./view/layout/footer.php')?>

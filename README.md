@@ -16,10 +16,10 @@ Cada compartilhamento nas redes sociais gera 40 novas visualizações.
 
 ### Projecões Estimadas
 
-   <img alt="Projecões Estimadas" width="600px" src="https://imgur.com/66dTwXh.png">
+   <img alt="Projecões Estimadas" width="600px" src="https://i.imgur.com/1Uxtj6o.png">
 
 ### Formulário de Cadastro
-   <img alt="Formulário de Cadastro" width="600px" height="500px" src="https://imgur.com/EgVTagZ.png">
+   <img alt="Formulário de Cadastro" width="600px" height="500px" src="https://i.imgur.com/6zxYk8z.png">
     
 ### 🛠 Tecnologias
 

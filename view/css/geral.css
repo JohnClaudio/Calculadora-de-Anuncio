@@ -1,0 +1,73 @@
+
+footer{
+   background-color: #343434;
+   color: #EAE6E6;
+   height: 6vh;
+   width: 100vw;
+   position: absolute;
+   bottom: 0;
+  
+}
+.titulo{
+   color: #D96B6B;
+   font-family: 'Roboto', sans-serif;
+   font-size: 2em;
+   font-weight: 600;
+}
+.titulo_anuncio{
+   color: #D96B6B;
+   font-family: 'Roboto', sans-serif;
+   font-size: 1.4em;
+   font-weight: 700;
+}
+.titulo_anuncio:hover{
+   background-color: #EAE6E6;
+   color:black;
+}
+.btn_laranja{
+   background-color: #D96B6B;
+   color: #EAE6E6;
+   width: 100%;
+
+}
+.input_menor{
+   width: 24vh;
+}
+
+.texto_claro{
+   color: #EAE6E6;
+   font-family: 'Roboto', sans-serif;
+   font-size: 1em;
+   font-weight: 200;
+}
+
+.texto_laranja{
+   color: #D96B6B;
+}
+label{
+   color: #EAE6E6;
+   font-family: 'Roboto', sans-serif;
+   font-size: 0.9em;
+}
+     
+.smokebg
+{
+ background-color:#262424;
+ color: #EAE6E6;
+
+  }
+
+.form-control{
+background-color:#2F2E2E;
+color: #EAE6E6;
+border-color: none;
+border:none;
+}
+
+.form-control:focus{
+background-color:#2F2E2E;
+color: #EAE6E6;
+  
+}
+
+     

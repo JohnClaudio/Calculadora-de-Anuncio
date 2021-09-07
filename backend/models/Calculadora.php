@@ -8,33 +8,37 @@ class Calculadora {
     private $totaldeClicks;
     private $totaldeCompartilhamentos; 
  
-    public function setValordeInvestimento($investimento = 0){
+    public function setValordeInvestimento($investimento = 0)
+    {
 
         $valor_convertido = floatval(str_replace(',', '.', $investimento)); //troca a virgula pelo ponto e converte string para float.
-        $this->valordeInvestimento = $valor_convertido;   
-        
+        $this->valordeInvestimento = $valor_convertido;       
         return $this->valordeInvestimento = $valor_convertido; 
       
     }
     
-    public function getValordeInvestimento()  {
+    public function getValordeInvestimento()  
+    {
    
         return  $this->valordeInvestimento;
-    
+
     }
     
-    public function setVisualizacaoOriginal($investimento) {
+    public function setVisualizacaoOriginal($investimento) 
+    {
         
         $calculoVisualizacaoSemCompartilhamento = ceil(($investimento * 30));
         return $this->visualizacaoOriginal = $calculoVisualizacaoSemCompartilhamento;
     }
     
-    public function getVisualizacaoOriginal() {
+    public function getVisualizacaoOriginal() 
+    {
         
         return $this->visualizacaoOriginal;
     }
     
-    public function setVisualizacaoTotal($valorInvestido){
+    public function setVisualizacaoTotal($valorInvestido)
+    {
         
         $visualizacoes_originais = Calculadora::setVisualizacaoOriginal($valorInvestido);
         $qtdClicks = Calculadora::setTotaldeClicks($visualizacoes_originais); //clicks a cada 100 views
@@ -51,12 +55,15 @@ class Calculadora {
         
     }
   
-    public function getVisualizacaoTotal(){
-        
+    public function getVisualizacaoTotal()
+    {
+  
           return $this->visualizacaoTotal; 
+
     }
     
-    public function setTotaldeClicks($visualizacoesTotal): int {
+    public function setTotaldeClicks($visualizacoesTotal): int 
+    {
         
         $totalviews = $visualizacoesTotal;
         $centenas_views_unidade = intval($totalviews); //captura as unidades das centenas de views e converte para int
@@ -66,13 +73,7 @@ class Calculadora {
         return floor($this->totaldeClicks);
         
     }
-    
-    public function getTotaldeClicks(){
-   
-        return $this->totaldeClicks;
-        
-    }
-    
+
     public function setTotaldeCompartilhamentos($totaldeClicks): int {
      
         $Clicks = $totaldeClicks * 15/100;
@@ -82,14 +83,20 @@ class Calculadora {
         return $this->totaldeCompartilhamentos;
         
     }
-    
-    public function getTotaldeCompartilhamentos() {
 
-        return $this->totaldeCompartilhamentos;
         
+    public function getTotaldeClicks()
+    {
+        return $this->totaldeClicks;    
     }
     
-    public function projecaodeAnuncio($investimento):array {
+    public function getTotaldeCompartilhamentos() 
+    {
+        return $this->totaldeCompartilhamentos; 
+    }
+    
+    public function projecaodeAnuncio($investimento):array 
+    {
         
         $valorInvestido = Calculadora::setValordeInvestimento($investimento);
         $visualizacaoTotal = Calculadora::setVisualizacaoTotal($valorInvestido);
@@ -98,7 +105,6 @@ class Calculadora {
         $totaldeCompartilhamentos = Calculadora::getTotaldeCompartilhamentos();
         
         return array($valorInvestido,$visualizacaoTotal,$visualizacaoOriginal,$qtd_clicks,$totaldeCompartilhamentos);
-        
         
     }
             

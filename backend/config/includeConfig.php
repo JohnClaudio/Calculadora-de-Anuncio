@@ -1,6 +1,9 @@
 <?php
-require('./view/layout/header.php');
-require ('./backend/models/Anuncio.php');
-require ('./backend/class/Calculadora.php');
-require('./backend/config/config.php');
-require_once ('./backend/controller/ControllerAnuncio.php');
+
+require_once ('./backend/controller/AnuncioDAO.php'); //DAO
+require_once ('./backend/models/Anuncio.php');   // ANUNCIO
+require_once ('./backend/models/Calculadora.php'); //CALCULADORA OBJETO
+require_once('./backend/config/config.php'); //BANCO DE DADOS
+
+require_once ('./backend/controller/ControllerAnuncio.php'); //
+

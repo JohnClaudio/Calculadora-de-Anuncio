@@ -1,49 +1,68 @@
-<?php 
+<?php
 
+class Anuncio 
+{
+    private $nomeAnuncio; 
+    private $inicio;
+    private $termino;
+    private $investimento;
+    private $nomeCliente; 
+ 
+    public function setNomeAnuncio($nome)
+    {
+        $this->nomeAnuncio = $nome;
+    }
 
-//require ('../config/configUser.php');
+    public function setInicio($inicio)
+    {
+        $this->inicio = $inicio;
+    }
 
-class Anuncio{
-    
-    private $pdo; 
-    
-    public function __construct() { 
-        
-        $pdo = new config();
-        $this->pdo = $pdo->connect();         
-        return $this->pdo;
-        
+    public function setTermino($termino)
+    {
+        $this->termino = $termino;
     }
-    
-    public function MostrarAnuncios():array {
-        
-       $stm = $this->pdo->prepare('select * from anuncio order by id_anuncio desc ');
-       $result = $stm->execute();    
-       return($result = $stm->fetchAll(PDO::FETCH_ASSOC));
-       
-    }
-    
-    public function cadastrarAnuncio($anuncio, $dataInicio, $dataFim, $investimentoDia, $nomeCliente){
 
-            $sql = "insert into anuncio values (default,?,?,?,?,?,default)";
-            $stm = $this->pdo->prepare("$sql");
-            return $result = $stm->execute(array($anuncio,$dataInicio,$dataFim,$investimentoDia,$nomeCliente));
+    public function setInvestimento($investimento)
+    {
+        $this->investimento = $investimento;
     }
-        
-    public function pesquisarAnuncio ($entrada):array{ 
-        
-        $sql = "select * from anuncio where nome_cliente like ? or nome_anuncio like ? order by id_anuncio desc";
-        $stm = $this->pdo->prepare($sql);
-        $result = $stm->execute(array("%$entrada%","%$entrada%"));
-        return $result = $stm->fetchAll();                  
+
+    public function setNomeCliente($nomeCliente)
+    {
+        $this->nomeCliente = $nomeCliente;
+    }
+
+  //GETTERS
+  
+    public function getNomeAnuncio()
+    {
+        return $this->nomeCliente;
+    }
+
     
+    public function getInicio()
+    {
+        return $this->inicio;
+    }
+
+    
+    public function getTermino()
+    {
+        return $this->termino;
+    }
+
+    
+    public function getInvestimento()
+    {
+        return $this->investimento;
+    }
+
+    public function getNomeCliente()
+    {
+        return $this->nomeCliente;
     }
     
-    public function calculoDias($data_inicial,$data_final) {
-        $diferenca = strtotime($data_final) - strtotime($data_inicial);
-        $dias = floor($diferenca / (60 * 60 * 24));
-        return $dias;
-    }
-    
-       
-} 
+            
+}
+

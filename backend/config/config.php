@@ -1,7 +1,7 @@
 <?php
 
 /**
-Abre conexão via PDO com o banco de dados
+Abre conexao via PDO com o banco de dados
 modifique os dados (user,host,pass,user acordo com o seu banco de dados;
 **/
 
